@@ -1,19 +1,18 @@
 package edu.loyola.cs485.gfbb.gui;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
 
-public class ReservationInfoDialog extends JDialog {
+public class ResInfoDialog extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
     private JTextField txtID;
     private JTextField txtDateAndTime;
-    private JTextField txtStatus;
     private JTextField txtNumGuests;
+    private JTextField txtStatus;
 
-    public ReservationInfoDialog() {
+    public ResInfoDialog() {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
@@ -48,6 +47,18 @@ public class ReservationInfoDialog extends JDialog {
 
     private void onOK() {
         // add your code here
+        ReservationManage service = new ReservationManage();
+        String id = txtID.getText();
+        String dateInfo= txtDateAndTime.getText();
+        String numGuests = txtNumGuests.getText();
+        String status = txtStatus.getText();
+        try {
+            service.createClient(name,email,dob);
+            dispose();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
         dispose();
     }
 
@@ -57,10 +68,9 @@ public class ReservationInfoDialog extends JDialog {
     }
 
     public static void main(String[] args) {
-        ReservationInfoDialog dialog = new ReservationInfoDialog();
+        ResInfoDialog dialog = new ResInfoDialog();
         dialog.pack();
         dialog.setVisible(true);
         System.exit(0);
     }
-
 }
