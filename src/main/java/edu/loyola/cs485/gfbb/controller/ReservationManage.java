@@ -9,11 +9,11 @@ import java.util.List;
 public class ReservationManage {
 
     public void createReservation (String id, String dateTime, String numGuests, String status) throws Exception {
-        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
-       // java.sql.Date dateTime = new java.sql.Date(sdf.parse(strDateTime).getTime());
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm");
+        java.sql.Date dateAndTime = new java.sql.Date(sdf.parse(dateTime).getTime());
 
         Reservation reservation = new Reservation;
-        reservation.setDateTime(dateTime);
+        reservation.setDateTime(dateAndTime);
         reservation.setStatus(status);
         reservation.setNumGuests(numGuests);
 
