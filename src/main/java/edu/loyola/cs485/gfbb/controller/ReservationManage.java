@@ -12,7 +12,7 @@ public class ReservationManage {
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm");
         java.sql.Date dateAndTime = new java.sql.Date(sdf.parse(dateTime).getTime());
 
-        Reservation reservation = new Reservation;
+        Reservation reservation = new Reservation();
         reservation.setDateTime(dateAndTime);
         reservation.setStatus(status);
         reservation.setNumGuests(numGuests);

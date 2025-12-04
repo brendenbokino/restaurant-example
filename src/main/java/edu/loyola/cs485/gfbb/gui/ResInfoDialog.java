@@ -51,11 +51,11 @@ public class ResInfoDialog extends JDialog {
         // add your code here
         ReservationManage service = new ReservationManage();
         String id = txtID.getText();
-        String dateInfo= txtDateAndTime.getText();
+        String dateTime= txtDateAndTime.getText();
         String numGuests = txtNumGuests.getText();
         String status = txtStatus.getText();
         try {
-            service.createClient(name,email,dob);
+            service.createReservation(id, dateTime, numGuests, status);
             dispose();
         } catch (Exception e) {
             System.out.println(e.getMessage());
