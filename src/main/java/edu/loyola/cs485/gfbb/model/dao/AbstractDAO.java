@@ -18,7 +18,7 @@ public abstract class AbstractDAO<E extends AbstractEntity> {
         return DriverManager.getConnection(ConUrl+":"+Port+"/"+Database+ "?user="+Username+"&password="+Password);
     }
 
-    public void setTestDatabase(){
+    public void setTestDatabase() {
         this.Database = "restaurant_db_test";
     }
 
