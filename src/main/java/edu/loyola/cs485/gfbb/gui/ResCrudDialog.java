@@ -48,6 +48,12 @@ public class ResCrudDialog extends JDialog {
                 onCancel();
             }
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+        deleteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                deleteClick();
+            }
+        });
     }
 
     private void newClick() {
@@ -60,6 +66,22 @@ public class ResCrudDialog extends JDialog {
     private void onCancel() {
         // add your code here if necessary
         dispose();
+    }
+
+    private void deleteClick(){
+        try{
+            ReservationManage manage = new ReservationManage();
+            Reservation r = (Reservation) listResUI.getSelectedValue();
+            if (r != null) {
+               manage.deleteClient(r.getId());
+                listResUI.clearSelection();
+                populateUI();
+            }
+
+        }catch(Exception e){
+            System.out.println("Error: " + e.getMessage());
+        }
+
     }
 
     public void populateUI(){
