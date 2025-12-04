@@ -67,7 +67,7 @@ public class ReservationDAO extends AbstractDAO<Reservation> {
     @Override
     public void delete(int id) throws SQLException {
         Connection con = getConnection();
-        String sql = "DELETE FROM reservation WHERE id_client = ?";
+        String sql = "DELETE FROM reservation WHERE id_reservation = ?";
         PreparedStatement pst = con.prepareStatement(sql);
 
         pst.setInt(1, id);
@@ -88,7 +88,7 @@ public class ReservationDAO extends AbstractDAO<Reservation> {
             r.setId( rs.getInt("id_reservation") );
             r.setDateTime( rs.getTimestamp("dt_reservation") );
             r.setStatus( rs.getString("status_reservation") );
-            r.setNumGuests( rs.getInt("numGuests") );
+            r.setNumGuests( rs.getInt("num_guests") );
 
             listReservation.add( r );
         }
