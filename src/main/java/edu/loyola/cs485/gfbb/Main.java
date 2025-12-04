@@ -1,4 +1,5 @@
 package edu.loyola.cs485.gfbb;
+import edu.loyola.cs485.gfbb.gui.MainFrame;
 import java.sql.*;
 
 public class Main {
@@ -11,6 +12,7 @@ public class Main {
     static String url = ConUrl+":"+Port+"/"+Database+ "?user="+Username+"&password="+Password;
 
     public static void main(String[] args) {
-
+    MainFrame frame = new MainFrame();
+    frame.setVisible(true);
     }
 }
