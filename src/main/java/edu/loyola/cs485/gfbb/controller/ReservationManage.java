@@ -28,8 +28,15 @@ public class ReservationManage {
         return dao.list();
     }
 
-    public void deleteClient(int id) throws Exception {
+    public void deleteRes(int id) throws Exception {
         ReservationDAO dao = new ReservationDAO();
         dao.delete(id);
     }
+
+  /**  public void updateRes(int id) throws Exception{
+        ReservationDAO dao = new ReservationDAO();
+        dao.update();
+
+    }
+   **/
 }

@@ -54,6 +54,14 @@ public class ResCrudDialog extends JDialog {
                 deleteClick();
             }
         });
+        /**
+        updateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                updateClick();
+            }
+        });
+         **/
     }
 
     private void newClick() {
@@ -68,34 +76,51 @@ public class ResCrudDialog extends JDialog {
         dispose();
     }
 
-    private void deleteClick(){
-        try{
+    private void deleteClick() {
+        try {
             ReservationManage manage = new ReservationManage();
             Reservation r = (Reservation) listResUI.getSelectedValue();
             if (r != null) {
-               manage.deleteClient(r.getId());
+                manage.deleteRes(r.getId());
                 listResUI.clearSelection();
                 populateUI();
             }
-
-        }catch(Exception e){
-            System.out.println("Error: " + e.getMessage());
-        }
-
-    }
-
-    public void populateUI(){
-        try {
-            ReservationManage manage = new ReservationManage();
-            List<Reservation> listdata = manage.getAllReservations();
-
-            listResUI.setListData( listdata.toArray() );
 
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
 
     }
+
+
+    public void populateUI() {
+        try {
+            ReservationManage manage = new ReservationManage();
+            List<Reservation> listdata = manage.getAllReservations();
+
+            listResUI.setListData(listdata.toArray());
+
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+    }
+
+    /**
+    public void updateClick() {
+        try {
+            ReservationManage manage = new ReservationManage();
+            Reservation r = (Reservation) listResUI.getSelectedValue();
+            if (r != null) {
+                manage.updateRes(r.getId());
+                listResUI
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+    }
+**/
 
     public static void main(String[] args) {
         ResCrudDialog dialog = new ResCrudDialog();
