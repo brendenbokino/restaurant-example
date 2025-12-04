@@ -52,10 +52,10 @@ public class ResInfoDialog extends JDialog {
         ReservationManage manage = new ReservationManage();
         String id = txtID.getText();
         String dateTime= txtDateAndTime.getText();
-        String numGuests = txtNumGuests.getText();
         String status = txtStatus.getText();
+        String numGuests = txtNumGuests.getText();
         try {
-            manage.createReservation(id, dateTime, numGuests, status);
+            manage.createReservation(id, dateTime, status, numGuests);
             dispose();
         } catch (Exception e) {
             System.out.println(e.getMessage());

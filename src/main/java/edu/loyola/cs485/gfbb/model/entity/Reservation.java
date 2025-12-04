@@ -40,7 +40,7 @@ public class Reservation extends AbstractEntity {
 
     @Override
     public String toString(){
-        return getId().toString()+ ": " +getDateTime().toString()+": "+getNumGuests().toString()+": "+getStatus().toString();
+        return getId().toString()+ ": " +getDateTime().toString()+": "+getStatus().toString()+": "+getNumGuests().toString();
     }
 
 
