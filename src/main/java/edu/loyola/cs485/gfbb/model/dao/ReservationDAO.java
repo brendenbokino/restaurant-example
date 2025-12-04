@@ -3,6 +3,7 @@ package edu.loyola.cs485.gfbb.model.dao;
 import edu.loyola.cs485.gfbb.model.entity.Reservation;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ReservationDAO extends AbstractDAO<Reservation> {
@@ -77,6 +78,21 @@ public class ReservationDAO extends AbstractDAO<Reservation> {
 
     @Override
     public List<Reservation> list() throws SQLException {
-        return List.of();
+        ArrayList<Reservation> listReservation = new ArrayList<>();
+        Connection con = getConnection();
+        String sql = "SELECT * FROM reservation ORDER BY id_reservation ";
+        PreparedStatement pst = con.prepareStatement(sql);
+        ResultSet rs = pst.executeQuery();
+        while (rs.next()) {
+            Reservation r = new Reservation();
+            r.setId( rs.getInt("id_reservation") );
+            r.setDateTime( rs.getTimestamp("dt_reservation") );
+            r.setStatus( rs.getString("status_reservation") );
+            r.setNumGuests( rs.getInt("numGuests") );
+
+            listReservation.add( r );
+        }
+
+        return listReservation;
     }
 }
