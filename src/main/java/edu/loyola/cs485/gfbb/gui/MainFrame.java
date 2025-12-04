@@ -34,10 +34,10 @@ public class MainFrame extends JFrame{
         menuBar.add(mnuFile);
         this.setJMenuBar(menuBar);
     }
-    public void createResCrudDialog(){
+    public void createResCrudDialog() {
         ResCrudDialog dialog = new ResCrudDialog();
         dialog.pack();
         dialog.setVisible(true);
-
+    }
 
 }

@@ -14,7 +14,7 @@ public class ReservationDAO extends AbstractDAO<Reservation> {
 
         pst.setTimestamp(1, entity.getDateTime());
         pst.setString(2, entity.getStatus());
-        pst.setString(3, entity.getStatus());
+        pst.setInt(3, entity.getNumGuests());
         pst.executeUpdate();
 
         ResultSet rs = pst.getGeneratedKeys();

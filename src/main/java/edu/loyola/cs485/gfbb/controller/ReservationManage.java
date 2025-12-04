@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ReservationManage {
 
-    public Reservation createReservation (String id, String dateTime, String numGuests, String status) throws Exception {
+    public Reservation createReservation (String id, String dateTime, String status, String numGuests) throws Exception {
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm");
         java.sql.Timestamp dateAndTime = new java.sql.Timestamp(sdf.parse(dateTime).getTime());
 
