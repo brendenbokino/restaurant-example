@@ -49,13 +49,13 @@ public class ResInfoDialog extends JDialog {
 
     private void onOK() {
         // add your code here
-        ReservationManage service = new ReservationManage();
+        ReservationManage manage = new ReservationManage();
         String id = txtID.getText();
         String dateTime= txtDateAndTime.getText();
         String numGuests = txtNumGuests.getText();
         String status = txtStatus.getText();
         try {
-            service.createReservation(id, dateTime, numGuests, status);
+            manage.createReservation(id, dateTime, numGuests, status);
             dispose();
         } catch (Exception e) {
             System.out.println(e.getMessage());

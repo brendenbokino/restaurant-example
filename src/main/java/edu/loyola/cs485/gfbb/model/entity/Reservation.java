@@ -38,4 +38,10 @@ public class Reservation extends AbstractEntity {
         this.numGuests = numGuests;
     }
 
+    @Override
+    public String toString(){
+        return getId().toString()+ ": " +getDateTime().toString()+": "+getNumGuests().toString()+": "+getStatus().toString();
+    }
+
+
 }

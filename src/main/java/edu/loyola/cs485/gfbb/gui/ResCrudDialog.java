@@ -1,7 +1,11 @@
 package edu.loyola.cs485.gfbb.gui;
 
+import edu.loyola.cs485.gfbb.controller.ReservationManage;
+import edu.loyola.cs485.gfbb.model.entity.Reservation;
+
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.List;
 
 public class ResCrudDialog extends JDialog {
     private JPanel contentPane;
@@ -9,11 +13,13 @@ public class ResCrudDialog extends JDialog {
     private JButton buttonCancel;
     private JButton deleteButton;
     private JButton updateButton;
+    private JList listResUI;
 
     public ResCrudDialog() {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
+        populateUI();
 
         buttonOK.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -54,6 +60,19 @@ public class ResCrudDialog extends JDialog {
     private void onCancel() {
         // add your code here if necessary
         dispose();
+    }
+
+    public void populateUI(){
+        try {
+            ReservationManage manage = new ReservationManage();
+            List<Reservation> listdata = manage.getAllReservations();
+
+            listResUI.setListData( listdata.toArray() );
+
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
     }
 
     public static void main(String[] args) {
