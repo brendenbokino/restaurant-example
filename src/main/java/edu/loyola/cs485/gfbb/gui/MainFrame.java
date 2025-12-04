@@ -18,13 +18,12 @@ public class MainFrame extends JFrame{
 
         JMenu mnuFile = new JMenu("File");
 
-      //  JMenuItem mniClient = new JMenuItem("Client CRUD");
-     //   mniClient.addActionListener(e -> {
-     //   createClientCrudDialog();
-     //       );
-    //    });
-    //    mnuFile.add(mniClient);
-      //  mnuFile.addSeparator();
+        JMenuItem mniReservation = new JMenuItem("Reservation CRUD");
+        mniReservation.addActionListener(e -> {
+        createResCrudDialog();
+        });
+        mnuFile.add(mniReservation);
+        mnuFile.addSeparator();
 
         JMenuItem mniExit = new JMenuItem("Exit");
         mniExit.addActionListener(e ->{
@@ -35,10 +34,10 @@ public class MainFrame extends JFrame{
         menuBar.add(mnuFile);
         this.setJMenuBar(menuBar);
     }
-   /** public void createResCrudDialog(){
-        ClientCrudDialog dialog = new ClientCrudDialog();
+    public void createResCrudDialog(){
+        ResCrudDialog dialog = new ResCrudDialog();
         dialog.pack();
         dialog.setVisible(true);
-**/
+
 
 }
