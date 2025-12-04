@@ -30,5 +30,12 @@ public class Reservation extends AbstractEntity {
         this.status = status;
     }
 
+    public Integer getNumGuests() {
+        return numGuests;
+    }
+
+    public void setNumGuests(Integer numGuests) {
+        this.numGuests = numGuests;
+    }
 
 }
