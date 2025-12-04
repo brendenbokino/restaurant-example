@@ -1,5 +1,7 @@
 package edu.loyola.cs485.gfbb.gui;
 
+import edu.loyola.cs485.gfbb.controller.ReservationManage;
+
 import javax.swing.*;
 import java.awt.event.*;
 
