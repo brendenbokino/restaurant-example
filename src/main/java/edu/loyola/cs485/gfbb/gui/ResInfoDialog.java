@@ -89,10 +89,6 @@ public class ResInfoDialog extends JDialog {
         dispose();
     }
 
-    public void addOKListener(ActionListener listener) {
-        buttonOK.addActionListener(listener);
-    }
-
     public static void main(String[] args) {
         ResInfoDialog dialog = new ResInfoDialog();
         dialog.pack();

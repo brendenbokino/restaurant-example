@@ -63,10 +63,14 @@ public class ResCrudDialog extends JDialog {
 
     private void newClick() {
         ResInfoDialog dialog = new ResInfoDialog();
+        dialog.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                populateUI();
+            }
+        });
         dialog.pack();
         dialog.setVisible(true);
-        // Repopulate UI once update is done
-        dialog.
     }
 
     private void onCancel() {
@@ -114,7 +118,7 @@ public class ResCrudDialog extends JDialog {
                 dialog.setVisible(true);
 
                 dialog.addWindowListener(new WindowAdapter() {
-                    public void windowClosing(WindowEvent e) {
+                    public void windowClosed(WindowEvent e) {
                         populateUI();
                     }
                 });
