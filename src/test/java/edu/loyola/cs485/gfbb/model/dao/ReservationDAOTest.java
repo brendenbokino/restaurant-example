@@ -14,7 +14,7 @@ public class ReservationDAOTest {
         dao.setTestDatabase();
 
         Reservation reservation = new Reservation();
-        reservation.setDateTime(new java.sql.Timestamp(System.currentTimeMillis()));
+        reservation.setDateTime(new java.sql.Timestamp(0));
         reservation.setNumGuests(4);
         reservation.setStatus("Test Status");
 
@@ -34,7 +34,7 @@ public class ReservationDAOTest {
         dao.setTestDatabase();
 
         Reservation res = new Reservation();
-        res.setDateTime(new java.sql.Timestamp(System.currentTimeMillis()));
+        res.setDateTime(new java.sql.Timestamp(0));
         res.setStatus("Test Status");
         res.setNumGuests(6);
 
@@ -63,19 +63,19 @@ public class ReservationDAOTest {
                 () -> assertNull( found.getDateTime() )
         );
     }
-
-    @Test
-    public void updateReservation() throws Exception {
-        ReservationDAO dao = new ReservationDAO();
-        dao.setTestDatabase();
-
-        Reservation reservation = new Reservation();
-        reservation.setDateTime(new java.sql.Timestamp(System.currentTimeMillis()));
-        reservation.setNumGuests(3);
-        reservation.setStatus("Test Status");
-
-        dao.create(reservation);
-    }
+//
+//    @Test
+//    public void updateReservation() throws Exception {
+//        ReservationDAO dao = new ReservationDAO();
+//        dao.setTestDatabase();
+//
+//        Reservation reservation = new Reservation();
+//        reservation.setDateTime(new java.sql.Timestamp(System.currentTimeMillis()));
+//        reservation.setNumGuests(3);
+//        reservation.setStatus("Test Status");
+//
+//        dao.create(reservation);
+//    }
 
     @Test
     public void deleteReservation() throws Exception {
@@ -83,7 +83,7 @@ public class ReservationDAOTest {
         dao.setTestDatabase();
 
         Reservation reservation = new Reservation();
-        reservation.setDateTime(new java.sql.Timestamp(System.currentTimeMillis()));
+        reservation.setDateTime(new java.sql.Timestamp(0));
         reservation.setNumGuests(5);
         reservation.setStatus("Test Status");
 

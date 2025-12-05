@@ -23,7 +23,6 @@ public class ResCrudDialog extends JDialog {
 
         buttonOK.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
                 newClick();
             }
         });
@@ -54,21 +53,20 @@ public class ResCrudDialog extends JDialog {
                 deleteClick();
             }
         });
-        /**
         updateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 updateClick();
             }
         });
-         **/
     }
 
     private void newClick() {
         ResInfoDialog dialog = new ResInfoDialog();
         dialog.pack();
         dialog.setVisible(true);
-
+        // Repopulate UI once update is done
+        dialog.
     }
 
     private void onCancel() {
@@ -106,21 +104,26 @@ public class ResCrudDialog extends JDialog {
 
     }
 
-    /**
     public void updateClick() {
         try {
             ReservationManage manage = new ReservationManage();
             Reservation r = (Reservation) listResUI.getSelectedValue();
             if (r != null) {
-                manage.updateRes(r.getId());
-                listResUI
+                ResInfoDialog dialog = new ResInfoDialog(r);
+                dialog.pack();
+                dialog.setVisible(true);
+
+                dialog.addWindowListener(new WindowAdapter() {
+                    public void windowClosing(WindowEvent e) {
+                        populateUI();
+                    }
+                });
             }
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
 
     }
-**/
 
     public static void main(String[] args) {
         ResCrudDialog dialog = new ResCrudDialog();

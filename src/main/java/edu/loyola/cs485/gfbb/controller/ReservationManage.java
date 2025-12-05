@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ReservationManage {
 
-    public Reservation createReservation (String id, String dateTime, String status, String numGuests) throws Exception {
+    public Reservation createReservation (String dateTime, String status, String numGuests) throws Exception {
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm");
         java.sql.Timestamp dateAndTime = new java.sql.Timestamp(sdf.parse(dateTime).getTime());
 
@@ -33,10 +33,17 @@ public class ReservationManage {
         dao.delete(id);
     }
 
-  /**  public void updateRes(int id) throws Exception{
-        ReservationDAO dao = new ReservationDAO();
-        dao.update();
+    public void updateRes(String id, String dateTime, String status, String numGuests) throws Exception{
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm");
+        java.sql.Timestamp dateAndTime = new java.sql.Timestamp(sdf.parse(dateTime).getTime());
 
+        Reservation reservation = new Reservation();
+        reservation.setId(Integer.parseInt(id));
+        reservation.setDateTime(dateAndTime);
+        reservation.setStatus(status);
+        reservation.setNumGuests(Integer.parseInt(numGuests));
+
+        ReservationDAO dao = new ReservationDAO();
+        dao.update(reservation);
     }
-   **/
 }

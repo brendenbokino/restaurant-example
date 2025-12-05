@@ -97,6 +97,7 @@
             </constraints>
             <properties>
               <editable value="false"/>
+              <text value="N/A"/>
             </properties>
           </component>
           <component id="6a1e4" class="javax.swing.JTextField" binding="txtDateAndTime">
