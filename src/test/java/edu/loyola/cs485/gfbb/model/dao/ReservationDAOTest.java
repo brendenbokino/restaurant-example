@@ -63,19 +63,34 @@ public class ReservationDAOTest {
                 () -> assertNull( found.getDateTime() )
         );
     }
-//
-//    @Test
-//    public void updateReservation() throws Exception {
-//        ReservationDAO dao = new ReservationDAO();
-//        dao.setTestDatabase();
-//
-//        Reservation reservation = new Reservation();
-//        reservation.setDateTime(new java.sql.Timestamp(System.currentTimeMillis()));
-//        reservation.setNumGuests(3);
-//        reservation.setStatus("Test Status");
-//
-//        dao.create(reservation);
-//    }
+
+    @Test
+    public void updateReservation() throws Exception {
+        ReservationDAO dao = new ReservationDAO();
+        dao.setTestDatabase();
+
+        Reservation reservation = new Reservation();
+        reservation.setDateTime(new java.sql.Timestamp(System.currentTimeMillis()));
+        reservation.setNumGuests(3);
+        reservation.setStatus("Test Status");
+
+        // Create a new reservation.
+        // The dao's create method will update the LOCAL reservation object with the new ID (the one we created above)
+        dao.create(reservation);
+        // Update the reservation object with a new value. This will then be sent back to the dao to update
+        // The ID has already been populated from the create method
+        reservation.setNumGuests(4);
+        dao.update(reservation);
+
+        Reservation found = dao.read(reservation.getId());
+        // clean up
+        dao.delete( reservation.getId() );
+        // If the number of guests is equal to the new value we updated it to,
+        // the update worked
+        assertAll(
+                () -> assertEquals(4, found.getNumGuests())
+        );
+    }
 
     @Test
     public void deleteReservation() throws Exception {
